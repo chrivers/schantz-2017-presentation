@@ -27,9 +27,37 @@
       <div class="slides">
 
 
+<section>
+  <h1>What?</h1>
+  <p class="fragment">Schantz 2017 Coding Competition</p>
+</section>
+
+
 
 <section>
-  <img src="computer_problems.png">
+  <h1>Who?</h1>
+  <p class="fragment">
+    Christian Iversen
+    <a href="mailto:ci@iversenit.dk">ci@iversenit.dk</a>
+  </p>
+  <ul class="fragment">
+    <li>Bender of rules
+    <li>Torturer of compilers
+    <li>Destroyer of style guides
+  </ul>
+</section>
+
+
+
+<section>
+  <h1>Why?</h1>
+  <img class="fragment" src="computer_problems.png">
+</section>
+
+
+
+<section>
+  <h1>How?</h1>
 </section>
 
 
@@ -87,8 +115,33 @@ for year in range(2016, 3000):
 </code></pre></section>
 
 
-
-<section>Slide 2</section>
+<section><pre><code data-trim data-noescape>
+interface B {
+    static void main(String[]a) {
+        float Rn = 0.0f;
+        float Rn_last = 0.0f;
+        for (int year = 2016; Rn_last < 1e6; year++) {
+            Rn_last = Rn;
+            float I, Oabs, Opct, r, PAL;
+            if (year >= 2029) {
+                I = 20000;
+            } else {
+                I = 10000;
+            }
+            Opct = I * 0.1100f;
+            if (Rn_last > 200000) {
+                Oabs = 0;
+            } else {
+                Oabs = 1000;
+            }
+            r = 0.01f * (Rn_last + I - Opct - Oabs);
+            PAL = 0.1530f * r;
+            Rn = Rn_last + I - Opct - Oabs + r - PAL;
+            System.out.format("%d	%f\n", year, Rn_last);
+       }
+    }
+}
+</code></pre></section>
 
 
 
@@ -102,6 +155,7 @@ for year in range(2016, 3000):
      // More info https://github.com/hakimel/reveal.js#configuration
      Reveal.initialize({
        history: true,
+       transition: "convex",
 
        // More info https://github.com/hakimel/reveal.js#dependencies
        dependencies: [
