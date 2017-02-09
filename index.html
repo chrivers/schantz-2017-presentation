@@ -544,10 +544,34 @@ if (Y > 28) {
 </section>
 
 
-<section><pre><code data-trim data-noescape class="lang-csharp">
+<section>
+  <h1>In essense..</h1>
+  (13, 7900), (6, 16800), (36, 17800)
+  <img class="fragment" src="are-you-pondering.jpeg">
+</section>
 
+
+
+<section><pre><code data-trim data-noescape class="lang-java">
+I=0;X=0;Y=2016;
+for (c:"\u4f0d\ua806\ub224") {
+    for (I=0; I++ < (c&0xFF); Y++, X += (c >> 8) * 100) {
+        print(Y + "	" + (X += X / 118));
+    }
+}
 </code></pre>
-<p> chars</p>
+<p>109 chars</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java">
+I=0;X=0;Y=2016;
+for (c:"\u4f0d\ua806\ub224")
+    for (I=0; I++ < (c&0xFF); Y++, X += (c >> 8) * 100)
+        print(Y + "     " + (X += X / 118));
+</code></pre>
+<p>105 chars</p>
 </section>
 
 
