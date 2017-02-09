@@ -6,9 +6,9 @@
 
     <title>reveal.js</title>
 
-    <link rel="stylesheet" href="override.css">
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/black.css">
+    <link rel="stylesheet" href="override.css">
 
     <!-- Theme used for syntax highlighting of code -->
     <link rel="stylesheet" href="lib/css/zenburn.css">
@@ -300,22 +300,6 @@ interface X {
         for (
             float Y = 16, X = 0;
             Y++ < 71;
-            X -= X > 2e5 ? 0 : 1e3, X += Y > 29 ? 17800 : 8900
-        ) System.out.format("20%f       %f\n", Y, X *= 1.00847);
-    }
-}
-</code></pre>
-<p>146 chars</p>
-</section>
-
-
-
-<section><pre><code data-trim data-noescape class="lang-java">
-interface X {
-    static void main(String[]a) {
-        for (
-            float Y = 16, X = 0;
-            Y++ < 71;
             X += Y > 29 ? Y > 35 ? 17800 : 16800 : 7900
         ) System.out.format("20%f       %f\n", Y, X *= 1.00847);
     }
@@ -462,20 +446,110 @@ class P
 
 
 
-<section><pre><code data-trim data-noescape class="lang-csharp">
-/* wait, what? */
+<section>
+  <h3>Wait, what?</h3>
+  <pre><code data-trim data-noescape class="lang-csharp">
 X += Y > 28 ? 524 + Y / 35 * 32 << 5 : 7904
+  </code></pre>
 
-/* unternarize! */
+  <pre class="fragment"><code data-trim data-noescape class="lang-csharp">
+/*     unternarize!     */
 if (Y > 28) {
   X += 524 + Y / 35 * 32 << 5
 } else {
   X += 7904
 }
+  </code></pre>
+
+  <pre class="fragment"><code data-trim data-noescape class="lang-csharp">
+/*     still weird     */
+  X += 524 + Y / 35 * 32 << 5
+  </code></pre>
+
+  <pre class="fragment"><code data-trim data-noescape class="lang-csharp">
+/*     ..but 34*2 < 70 :-(     */
+  X += 524 + (Y > 34 ? 1: 0) * 32
+  </code></pre>
+</section>
+</section>
+
+
+
+<section>
+<section>
+  <p>And what's the deal with <strike>airline food</strike> the number 7904?</p>
+  <p>Isn't it supposed to be 7900?</p>
+</section>
+
+
+
+<section><pre class="compare">
+2016:       0.0000 vs ref       0.0000: diff       0.0000 (   0.000% error) |          |          |          |          |
+2017:    7970.0000 vs ref    7966.9130: diff       3.0870 (  38.748% error) |          |          |***       |          |
+2018:   16008.0000 vs ref   16001.3058: diff       6.6942 (  41.836% error) |          |          |****      |          |
+2019:   24114.0000 vs ref   24103.7498: diff      10.2502 (  42.525% error) |          |          |****      |          |
+2020:   32289.0000 vs ref   32274.8216: diff      14.1784 (  43.930% error) |          |          |****      |          |
+2021:   40533.0000 vs ref   40515.1023: diff      17.8977 (  44.175% error) |          |          |****      |          |
+2022:   48847.0000 vs ref   48825.1782: diff      21.8218 (  44.694% error) |          |          |****      |          |
+2023:   57231.0000 vs ref   57205.6405: diff      25.3595 (  44.330% error) |          |          |****      |          |
+2024:   65686.0000 vs ref   65657.0853: diff      28.9147 (  44.039% error) |          |          |****      |          |
+2025:   74213.0000 vs ref   74180.1138: diff      32.8862 (  44.333% error) |          |          |****      |          |
+2026:   82812.0000 vs ref   82775.3323: diff      36.6677 (  44.298% error) |          |          |****      |          |
+2027:   91484.0000 vs ref   91443.3524: diff      40.6476 (  44.451% error) |          |          |****      |          |
+2028:  100230.0000 vs ref  100184.7906: diff      45.2094 (  45.126% error) |          |          |****      |          |
+2029:  109050.0000 vs ref  109000.2688: diff      49.7312 (  45.625% error) |          |          |****      |          |
+2030:  126884.0000 vs ref  126865.7971: diff      18.2029 (  14.348% error) |          |          |*         |          |
+2031:  144869.0000 vs ref  144882.6464: diff     -13.6464 (  -9.419% error) |          |          |          |          |
+2032:  163006.0000 vs ref  163052.0984: diff     -46.0984 ( -28.272% error) |          |        **|          |          |
+2033:  181297.0000 vs ref  181375.4456: diff     -78.4456 ( -43.250% error) |          |      ****|          |          |
+2034:  199743.0000 vs ref  199853.9917: diff    -110.9917 ( -55.536% error) |          |     *****|          |          |
+2035:  218345.0000 vs ref  218489.0510: diff    -144.0510 ( -65.931% error) |          |    ******|          |          |
+2036:  238138.0000 vs ref  238290.4192: diff    -152.4192 ( -63.964% error) |          |    ******|          |          |
+2037:  258098.0000 vs ref  258259.5051: diff    -161.5051 ( -62.536% error) |          |    ******|          |          |
+2038:  278228.0000 vs ref  278397.7291: diff    -169.7291 ( -60.966% error) |          |    ******|          |          |
+2039:  298528.0000 vs ref  298706.5239: diff    -178.5239 ( -59.766% error) |          |     *****|          |          |
+2040:  319000.0000 vs ref  319187.3341: diff    -187.3341 ( -58.691% error) |          |     *****|          |          |
+2041:  339646.0000 vs ref  339841.6168: diff    -195.6168 ( -57.561% error) |          |     *****|          |          |
+2042:  360467.0000 vs ref  360670.8413: diff    -203.8413 ( -56.517% error) |          |     *****|          |          |
+2043:  381464.0000 vs ref  381676.4894: diff    -212.4894 ( -55.673% error) |          |     *****|          |          |
+2044:  402639.0000 vs ref  402860.0552: diff    -221.0552 ( -54.871% error) |          |     *****|          |          |
+2045:  423993.0000 vs ref  424223.0459: diff    -230.0459 ( -54.228% error) |          |     *****|          |          |
+2046:  445528.0000 vs ref  445766.9811: diff    -238.9811 ( -53.611% error) |          |     *****|          |          |
+2047:  467246.0000 vs ref  467493.3934: diff    -247.3934 ( -52.919% error) |          |     *****|          |          |
+2048:  489148.0000 vs ref  489403.8285: diff    -255.8285 ( -52.273% error) |          |     *****|          |          |
+2049:  511236.0000 vs ref  511499.8449: diff    -263.8449 ( -51.583% error) |          |     *****|          |          |
+2050:  533511.0000 vs ref  533783.0146: diff    -272.0146 ( -50.960% error) |          |     *****|          |          |
+2051:  555975.0000 vs ref  556254.9227: diff    -279.9227 ( -50.323% error) |          |     *****|          |          |
+2052:  578629.0000 vs ref  578917.1679: diff    -288.1679 ( -49.777% error) |          |      ****|          |          |
+2053:  601475.0000 vs ref  601771.3623: diff    -296.3623 ( -49.248% error) |          |      ****|          |          |
+2054:  624515.0000 vs ref  624819.1318: diff    -304.1318 ( -48.675% error) |          |      ****|          |          |
+2055:  647750.0000 vs ref  648062.1158: diff    -312.1158 ( -48.161% error) |          |      ****|          |          |
+2056:  671182.0000 vs ref  671501.9679: diff    -319.9679 ( -47.650% error) |          |      ****|          |          |
+2057:  694812.0000 vs ref  695140.3556: diff    -328.3556 ( -47.236% error) |          |      ****|          |          |
+2058:  718643.0000 vs ref  718978.9604: diff    -335.9604 ( -46.727% error) |          |      ****|          |          |
+2059:  742675.0000 vs ref  743019.4782: diff    -344.4782 ( -46.362% error) |          |      ****|          |          |
+2060:  766911.0000 vs ref  767263.6192: diff    -352.6192 ( -45.958% error) |          |      ****|          |          |
+2061:  791353.0000 vs ref  791713.1080: diff    -360.1080 ( -45.485% error) |          |      ****|          |          |
+2062:  816002.0000 vs ref  816369.6841: diff    -367.6841 ( -45.039% error) |          |      ****|          |          |
+2063:  840860.0000 vs ref  841235.1013: diff    -375.1013 ( -44.589% error) |          |      ****|          |          |
+2064:  865928.0000 vs ref  866311.1286: diff    -383.1286 ( -44.225% error) |          |      ****|          |          |
+2065:  891209.0000 vs ref  891599.5498: diff    -390.5498 ( -43.803% error) |          |      ****|          |          |
+2066:  916704.0000 vs ref  917102.1640: diff    -398.1640 ( -43.415% error) |          |      ****|          |          |
+2067:  942415.0000 vs ref  942820.7854: diff    -405.7854 ( -43.040% error) |          |      ****|          |          |
+2068:  968344.0000 vs ref  968757.2434: diff    -413.2434 ( -42.657% error) |          |      ****|          |          |
+2069:  994493.0000 vs ref  994913.3833: diff    -420.3833 ( -42.253% error) |          |      ****|          |          |
+2070: 1020863.0000 vs ref 1021291.0656: diff    -428.0656 ( -41.914% error) |          |      ****|          |          |
+</pre>
+</section>
+</section>
+
+
+<section><pre><code data-trim data-noescape class="lang-csharp">
+
 </code></pre>
-<p></p>
+<p> chars</p>
 </section>
-</section>
+
 
 
       </div>
