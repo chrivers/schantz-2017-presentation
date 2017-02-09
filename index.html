@@ -62,7 +62,7 @@
 
 
 
-<section><pre><code data-trim data-noescape>
+<section><pre><code data-trim data-noescape class="lang-python">
 #!/usr/bin/python3
 
 initial_year    = 2016
@@ -79,11 +79,13 @@ interest_pal_fee = 0.1530
 interest_rate = 0.01
 
 payment_fee = 0.1100
+...
 </code></pre></section>
 
 
 
-<section><pre><code data-trim data-noescape>
+<section><pre><code data-trim data-noescape class="lang-python">
+...
 def calc_year(year):
     if year == initial_year:
         return initial_reserve
@@ -102,20 +104,24 @@ def calc_year(year):
         PAL = interest_pal_fee * r
         res = Rn_last + I - Opct - Oabs + r - PAL
         return res
+...
 </code></pre></section>
 
 
 
-<section><pre><code data-trim data-noescape>
+<section><pre><code data-trim data-noescape class="lang-python">
+...
 for year in range(2016, 3000):
     amount = calc_year(year)
     print("%d\t%.6f" % (year, amount))
     if amount > 1000000.0:
         break
-</code></pre></section>
+</code></pre>
+<p>1089 chars</p>
+</section>
 
 
-<section><pre><code data-trim data-noescape>
+<section><pre><code data-trim data-noescape class="lang-java">
 interface X {
     static void main(String[]a) {
         float Rn = 0.0f;
@@ -147,7 +153,7 @@ interface X {
 
 
 
-<section><pre><code data-trim data-noescape>
+<section><pre><code data-trim data-noescape class="lang-java">
 interface X {
     static void main(String[]a) {
         float Rn = 0f;
@@ -179,7 +185,7 @@ interface X {
 
 
 
-<section><pre><code data-trim data-noescape>
+<section><pre><code data-trim data-noescape class="lang-java">
 interface X {
     static void main(String[]a) {
         float Rn = 0f;
@@ -201,6 +207,93 @@ interface X {
 
 
 
+<section><pre><code data-trim data-noescape class="lang-java">
+interface X {
+    static void main(String[]a) {
+        float L = 0f;
+        float X = 0;
+        float Q = 0;
+        for (int Y = 2015; Q < 1e6; Y++) {
+            L = 1.00847f * X;
+            float I, r, P;
+            I = 1e4f * (Y > 2027 ? 2 : 1);
+            X = L + I - (I * 0.1100f) - (L > 2e5 ? 0 : 1000);
+            System.out.format("%d       %f\n", Y, L);
+            Q = L;
+        }
+    }
+}
+</code></pre>
+<p>215 chars</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java">
+interface X {
+    static void main(String[]a) {
+        float X = 0;
+        for (int Y = 0; Y < 70; Y++) {
+            System.out.format("%d       %f\n", Y+2016, X *= 1.00847f);
+            X += (1e4f * (Y > 12 ? 2 : 1) * 0.89f) - (X > 2e5 ? 0 : 1e3);
+        }
+    }
+}
+</code></pre>
+<p>164 chars</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java">
+interface X {
+    static void main(String[]a) {
+        float X = 0;
+        for (int Y = 0; Y < 70; Y++) {
+            System.out.format("%d       %f\n", Y+2016, X *= 1.00847f);
+            X += 8900 * (Y > 12 ? 2 : 1) - (X > 2e5 ? 0 : 1e3);
+        }
+    }
+}
+</code></pre>
+<p>156 chars</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java">
+interface X {
+    static void main(String[]a) {
+        float Y = 16, X = 0;
+        while (Y++ < 71) {
+            System.out.format("20%f     %f\n", Y, X *= 1.00847f);
+            X -= X > 2e5 ? 0 : 1e3;
+            X += Y > 29 ? 17800 : 8900;
+        }
+    }
+}
+</code></pre>
+<p>151 chars</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java">
+interface X {
+    static void main(String[]a) {
+        for (
+            float Y = 16, X = 0;
+            Y++ < 71;
+            X -= X > 2e5 ? 0 : 1e3, X += Y > 29 ? 17800 : 8900
+        ) System.out.format("20%f       %f\n", Y, X *= 1.00847);
+    }
+}
+</code></pre>
+<p>146 chars</p>
+</section>
+
+
+
       </div>
     </div>
 
@@ -211,7 +304,8 @@ interface X {
      // More info https://github.com/hakimel/reveal.js#configuration
      Reveal.initialize({
        history: true,
-       transition: "convex",
+       /* transition: "convex",*/
+       transition: "fade",
 
        // More info https://github.com/hakimel/reveal.js#dependencies
        dependencies: [
