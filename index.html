@@ -406,6 +406,78 @@ interface X {
 
 
 
+<section>
+  <h2>Mistakes were made..</h2>
+  <img class="fragment" src="beanshell-simba.jpeg">
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java">
+/* beanshell is not java */
+for (
+    Y = 15, X = 0;
+    Y++ < 70;
+    X += Y > 28 ? 524 + Y / 35 * 32 << 5 : 7900
+) print("20" + Y + "    " + (X += X / 118));
+</code></pre>
+<p>77 chars (but against the rules)</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-csharp">
+class P
+{
+    static void Main()
+    {
+        for (
+            int Y = 15, X = 0;
+            Y++ < 70;
+            X += (Y > 28 ? Y > 35 ? 556 : 524 : 247) << 5
+        ) System.Console.Write("20{0}	{1}\n", Y, X += X/118);
+    }
+}
+</code></pre>
+<p>130 chars</p>
+</section>
+
+
+<section>
+<section><pre><code data-trim data-noescape class="lang-csharp">
+class P
+{
+    static void Main()
+    {
+        for (
+            int Y = 15, X = 0;
+            Y++ < 70;
+            X += Y > 28 ? 524 + Y / 35 * 32 << 5 : 7904
+        ) System.Console.Write($"20{Y}  {X += X/118}\n");
+    }
+}
+</code></pre>
+<p>125 chars</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-csharp">
+/* wait, what? */
+X += Y > 28 ? 524 + Y / 35 * 32 << 5 : 7904
+
+/* unternarize! */
+if (Y > 28) {
+  X += 524 + Y / 35 * 32 << 5
+} else {
+  X += 7904
+}
+</code></pre>
+<p></p>
+</section>
+</section>
+
+
       </div>
     </div>
 
