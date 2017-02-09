@@ -547,7 +547,7 @@ if (Y > 28) {
 <section>
   <h1>In essense..</h1>
   (13, 7900), (6, 16800), (36, 17800)
-  <img class="fragment" src="are-you-pondering.jpeg">
+  <img class="fragment" src="are-you-pondering.png">
 </section>
 
 
@@ -565,13 +565,96 @@ for (c:"\u4f0d\ua806\ub224") {
 
 
 
-<section><pre><code data-trim data-noescape class="lang-java">
+<section><pre><code data-trim data-noescape class="lang-java big1">
 I=0;X=0;Y=2016;
 for (c:"\u4f0d\ua806\ub224")
     for (I=0; I++ < (c&0xFF); Y++, X += (c >> 8) * 100)
         print(Y + "     " + (X += X / 118));
 </code></pre>
 <p>105 chars</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java big1">
+X=0;Y=16;
+for (c:"\u4f1d\ua823\ub247")
+    for (;Y < (c&0xFF); X += (c >> 8) * 100)
+        print(2e3 + Y++ + "	" + (X += X / 118));
+</code></pre>
+<p>96 chars</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java big1">
+X=0;Y=16;
+for (c:"伝ꠣ뉇")
+    for (;(c&255) > Y; X += (c >> 8) * 100, X += X / 118)
+        print(2e3 + Y++ + "	" + X);
+</code></pre>
+<p>80 chars</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java big1">
+X=0;Y=16;
+for (c:"ỹ䇃䗏")
+    for (;c%100 > Y; X += c/100*100, X += X / 118)
+        print("20" + Y++ + "	" + X);
+</code></pre>
+<p>78 chars</p>
+</section>
+
+
+
+<section>
+  <h1>Hic sunt dracones!</h1>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java big1">
+X=Y=0;
+for (c:"㷀荁謇")
+    for (;c % 8 * 6 + 13 > Y; X += c / 2, X += X / 118)
+        print(2016 + Y++ + "	" + X);
+</code></pre>
+<p>72 chars</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java big2">
+X=Y=0;
+for (c:"ἠ䉁䘧")
+    for (;c % 8 * 6 + 13 > Y; X += c + X / 118)
+        print(2016 + Y++ + "	" + X);
+</code></pre>
+<p>67 chars</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java big2">
+X=Y=0;
+for (c:"ἢ䉃䘩")
+    for (;c % 16 * 6 >= Y; X += c + X / 118)
+        print(2016 + Y++ + "	" + X);
+</code></pre>
+<p>66 chars</p>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-java big2">
+ᗇ=ᐶ=0;
+for (ᐷ:"ἢ䉃䘩")
+    for (;ᐷ % 16 * 6 >= ᐶ; ᗇ += ᐷ + ᗇ / 118)
+        print('ߠ' + ᐶ++ + "	" + ᗇ);
+</code></pre>
+<p>65 chars</p>
 </section>
 
 
