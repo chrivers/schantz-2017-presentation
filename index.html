@@ -704,6 +704,123 @@ for (;ᐶ < 55; ᗇ += "Ἕ䈯䘢"[ᐶ++>18?2:ᐶ/14] + ᗇ/'v')
 
 
 
+<section><pre><code data-trim data-noescape class="lang-perl">
+16 71 crange
+{
+  save-c 2000 +
+  "     " push-b new-line
+  4 extract-array
+
+  # (Y / 35 * 1024) + 8864
+  push-c 35 / 1024 * 8864 +
+
+  # Y > 28 ? last : 0
+  push-c 28 gt *
+
+  # x += y-cond
+  push-b +
+
+  # x += 7904
+  7904 +
+
+  # x += x / 118
+  dup 118 / + pop-b
+} map
+
+unwords map1
+</code><p>49 chars</p></pre>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-perl">
+16 71 crange
+
+m:
+  save-c 2000 +
+  "     " push-b new-line
+  4 extract-array
+  unwords
+
+  # (Y / 35 * 1024) + 8864
+  push-c 35 / 1024 * 8864 +
+
+  # Y > 28 ? last : 0
+  push-c 28 gt *
+
+  # x += y-cond
+  push-b +
+
+  # x += 7904
+  7904 +
+
+  # x += x / 118
+  dup 118 / + pop-b
+</code><p>46 chars</p></pre>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-perl">
+16 71 crange
+{
+  save-c
+  1000 double +
+  "\x09" push-b new-line
+
+  1000
+  # Y > 34 ? 1000 : 0
+  34 push-c lt *
+  # Y += 8900
+  8900 +
+
+  # Y > 28 ? last : 0
+  28 push-c lt *
+  # x += 7900
+  7900 +
+
+  # x += y-cond
+  push-b +
+
+  # x += x / 118
+  dup 118 / + pop-b
+} each
+</code><p><i>42 chars</i></p></pre>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-perl">
+16 71 crange
+
+m:
+  1000 double + show
+  9 push-b show new-line
+
+  1000
+  # Y > 34 ? 1000 : 0
+  @2 34 gt inc *
+
+  # Y += 7900
+  7900 +
+
+  # Y > 28 ? last : 0
+  @5 28 gt *
+
+  # x += 7900
+  @5 +
+
+  # x += y-cond
+  push-b +
+
+  # x += x / 118
+  dup 118 / +
+  pop-b
+</code><p>39 chars</p></pre>
+</section>
+
+
+
       </div>
     </div>
 
