@@ -821,6 +821,100 @@ m:
 
 
 
+<section><pre><code data-trim data-noescape class="lang-perl big1">
+16 71 crange
+empty-list  7900 + 13 *
+empty-list 16800 +  6 * +
+empty-list 17800 + 36 * +
+zip
+
+m:
+  head
+  1000 double +
+  show
+  9
+  push-b show
+  push-b @5 last +
+  dup 118 / +
+  pop-b
+  new-line
+</code><p>49 chars (worse!)</p></pre>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-perl big1">
+ 79 itemize 13 *
+168 itemize  6 * +
+178 itemize 36 * +
+
+m:
+  pop-c
+  counter 2015 + show
+  9
+  push-b show
+  new-line
+
+  push-b
+  push-c 100 *
+  +
+  dup 118 / +
+  pop-b
+</code><p>41 chars (previous best: 39)</p></pre>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-perl big1">
+"\x4f\xa8\xb2"
+"\x1a\x0c\x48" half m1
+compress
+
+m:
+  pop-c
+  counter 2015 + show
+  9
+  push-b show
+  new-line
+
+  push-b
+  push-c 100 *
+  +
+  dup 118 / +
+  pop-b
+</code><p>34 chars</p></pre>
+</section>
+
+
+
+<section><pre><code data-trim data-noescape class="lang-perl big1">
+"\x4f\xa8\xb2\x07\x1a\x0c\x48" half m1
+compress
+
+m:
+  pop-c
+  counter 2015 + show
+  9
+  push-b show
+  new-line
+
+  push-b
+  push-c 100 *
+  +
+  dup 118 / +
+  pop-b
+</code><p>33 chars (half!)</p></pre>
+</section>
+
+
+
+<section>
+  <h1>Questions?</h1>
+  <h3><a href="mailto:ci@iversenit.dk">ci@iversenit.dk</a></h3>
+</section>
+
+
+
       </div>
     </div>
 
