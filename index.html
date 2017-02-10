@@ -147,6 +147,9 @@ interface X {
     }
 }
 </code><p>360 chars</p></pre>
+  <aside class="notes">
+    Smaller variables, common factor elimination
+  </aside>
 </section>
 
 
@@ -178,6 +181,9 @@ interface X {
     }
 }
 </code><p>274 chars</p></pre>
+  <aside class="notes">
+    If to ternary, standard shuffle
+  </aside>
 </section>
 
 
@@ -220,6 +226,9 @@ interface X {
     }
 }
 </code><p>215 chars</p></pre>
+  <aside class="notes">
+    Eliminate almost all vars, move multiplication into side-effect in format()
+  </aside>
 </section>
 
 
@@ -235,6 +244,9 @@ interface X {
     }
 }
 </code><p>164 chars</p></pre>
+  <aside class="notes">
+    Factor out constants, use less floats
+  </aside>
 </section>
 
 
@@ -250,6 +262,9 @@ interface X {
     }
 }
 </code><p>156 chars</p></pre>
+  <aside class="notes">
+    Change to while, use "-=" and "+=" to avoid parentheses
+  </aside>
 </section>
 
 
@@ -266,6 +281,9 @@ interface X {
     }
 }
 </code><p>151 chars</p></pre>
+  <aside class="notes">
+    Move conditions back into for loop, avoid braces
+  </aside>
 </section>
 
 
@@ -281,6 +299,9 @@ interface X {
     }
 }
 </code><p>146 chars</p></pre>
+  <aside class="notes">
+    Simplify double assignment to double ternary
+  </aside>
 </section>
 
 
@@ -296,6 +317,9 @@ interface X {
     }
 }
 </code><p>142 chars</p></pre>
+  <aside class="notes">
+    Factor 100
+  </aside>
 </section>
 
 
@@ -311,6 +335,9 @@ interface X {
     }
 }
 </code><p>141 chars</p></pre>
+  <aside class="notes">
+    long to int, round off number
+  </aside>
 </section>
 
 
@@ -326,6 +353,9 @@ interface X {
     }
 }
 </code><p>139 chars</p></pre>
+  <aside class="notes">
+    1.0085 to X/118
+  </aside>
 </section>
 
 
@@ -341,6 +371,9 @@ interface X {
     }
 }
 </code><p>138 chars</p></pre>
+  <aside class="notes">
+    Multiply to shift
+  </aside>
 </section>
 
 
@@ -356,6 +389,9 @@ interface X {
     }
 }
 </code><p>138 chars</p></pre>
+  <aside class="notes">
+    Reshuffle to avoid parentheses, needs bitshift
+  </aside>
 </section>
 
 
@@ -390,6 +426,9 @@ for (
     X += Y > 28 ? 524 + Y / 35 * 32 << 5 : 7900
 ) print("20" + Y + "    " + (X += X / 118));
 </code><p>77 chars (but against the rules)</p></pre>
+  <aside class="notes">
+    So let's attempt this in C# instead..
+  </aside>
 </section>
 
 
@@ -407,6 +446,9 @@ class P
     }
 }
 </code><p>130 chars</p></pre>
+  <aside class="notes">
+    Integer tricks + string interpolation
+  </aside>
 </section>
 
 
@@ -424,6 +466,9 @@ class P
     }
 }
 </code><p>125 chars</p></pre>
+  <aside class="notes">
+    wait-what section next
+  </aside>
 </section>
 
 
@@ -433,6 +478,9 @@ class P
   <pre><code data-trim data-noescape class="lang-csharp">
 X += Y > 28 ? 524 + Y / 35 * 32 << 5 : 7904
   </code></pre>
+  <aside class="notes">
+    unternarize, look at top branch
+  </aside>
 
   <pre class="fragment"><code data-trim data-noescape class="lang-csharp">
 /*     unternarize!     */
@@ -461,6 +509,9 @@ if (Y > 28) {
 <section>
   <p>And what's the deal with <strike>airline food</strike> the number 7904?</p>
   <p>Isn't it supposed to be 7900?</p>
+  <aside class="notes">
+    No, because precision, see graph
+  </aside>
 </section>
 
 
@@ -523,6 +574,9 @@ if (Y > 28) {
 2070: 1020863.0000 vs ref 1021291.0656: diff    -428.0656 ( -41.914% error) |          |      ****|          |          |
 </pre>
 </section>
+  <aside class="notes">
+    This is where we contemplate the true challenge
+  </aside>
 </section>
 
 
@@ -530,6 +584,9 @@ if (Y > 28) {
   <h1>In essense..</h1>
   (13, 7900), (6, 16800), (36, 17800)
   <img class="fragment" src="are-you-pondering.png">
+  <aside class="notes">
+    Now, let's try this in bean shell(!)
+  </aside>
 </section>
 
 
@@ -542,6 +599,9 @@ for (c:"\u4f0d\ua806\ub224") {
     }
 }
 </code><p>109 chars</p></pre>
+  <aside class="notes">
+    Remove braces
+  </aside>
 </section>
 
 
@@ -552,6 +612,9 @@ for (c:"\u4f0d\ua806\ub224")
     for (I=0; I++ < (c&0xFF); Y++, X += (c >> 8) * 100)
         print(Y + "     " + (X += X / 118));
 </code><p>105 chars</p></pre>
+  <aside class="notes">
+    Encode up-until year, outfactor "I"
+  </aside>
 </section>
 
 
@@ -562,6 +625,9 @@ for (c:"\u4f1d\ua823\ub247")
     for (;Y < (c&0xFF); X += (c >> 8) * 100)
         print(2e3 + Y++ + "	" + (X += X / 118));
 </code><p>96 chars</p></pre>
+  <aside class="notes">
+    Actual unicode, assignment in for to avoid parentheses
+  </aside>
 </section>
 
 
@@ -572,6 +638,9 @@ for (c:"伝ꠣ뉇")
     for (;(c&255) > Y; X += (c >> 8) * 100, X += X / 118)
         print(2e3 + Y++ + "	" + X);
 </code><p>80 chars</p></pre>
+  <aside class="notes">
+    Base-100 to avoid shift with parentheses
+  </aside>
 </section>
 
 
@@ -582,12 +651,18 @@ for (c:"ỹ䇃䗏")
     for (;c%100 > Y; X += c/100*100, X += X / 118)
         print("20" + Y++ + "	" + X);
 </code><p>78 chars</p></pre>
+  <aside class="notes">
+    Dragons
+  </aside>
 </section>
 
 
 
 <section>
   <h1>Hic sunt dracones!</h1>
+  <aside class="notes">
+    Add value encoded in LSBs
+  </aside>
 </section>
 
 
@@ -598,6 +673,9 @@ for (c:"㷀荁謇")
     for (;c % 8 * 6 + 13 > Y; X += c / 2, X += X / 118)
         print(2016 + Y++ + "	" + X);
 </code><p>72 chars</p></pre>
+  <aside class="notes">
+    Still 2 "+=". Very challenging to find suitable consts for single addition
+  </aside>
 </section>
 
 
@@ -608,6 +686,9 @@ for (c:"ἠ䉁䘧")
     for (;c % 8 * 6 + 13 > Y; X += c + X / 118)
         print(2016 + Y++ + "	" + X);
 </code><p>67 chars</p></pre>
+  <aside class="notes">
+    4-bit based sidechannel, avoid +13, but can't stay under 64
+  </aside>
 </section>
 
 
@@ -618,6 +699,9 @@ for (c:"ἢ䉃䘩")
     for (;c % 16 * 6 >= Y; X += c + X / 118)
         print(2016 + Y++ + "	" + X);
 </code><p>66 chars</p></pre>
+  <aside class="notes">
+    Now make it pretty, and 2016 is a char
+  </aside>
 </section>
 
 
@@ -628,6 +712,9 @@ for (ᐷ:"ἢ䉃䘩")
     for (;ᐷ % 16 * 6 >= ᐶ; ᗇ += ᐷ + ᗇ / 118)
         print('ߠ' + ᐶ++ + "	" + ᗇ);
 </code><p>65 chars</p></pre>
+  <aside class="notes">
+    Tadaa! But alas.. beanshell
+  </aside>
 </section>
 
 
