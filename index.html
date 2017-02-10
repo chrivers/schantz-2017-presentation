@@ -722,6 +722,9 @@ for (ᐷ:"ἢ䉃䘩")
 <section>
   <h2>But this is no good..</h2>
   <img class="fragment" src="simba-listen.jpeg">
+  <aside class="notes">
+    Now let's try it in C#!
+  </aside>
 </section>
 
 
@@ -740,6 +743,9 @@ foreach (var c in "ἢ䉃䘩")
     for (;c % 16 * 6 >= Y; X += c + X/118)
         print($"20{Y+++16}	{X}")
   </code><p>80 chars</p></pre>
+  <aside class="notes">
+    Big break! Rewrite from loop-loop, to loop+selector expression
+  </aside>
 </section>
 
 
@@ -762,6 +768,9 @@ int ᗇ,ᐶ;
 for (;ᐶ++ < 55; ᗇ += "Ἕ䈯䘐"[13%ᐶ/13 + 19%ᐶ/19] + ᗇ/'v')
      print('ߟ'+ᐶ+"	"+ᗇ)
   </code><p>70 chars (still...)</p></pre>
+  <aside class="notes">
+    Tried very hard to find good selector
+  </aside>
 </section>
 
 
@@ -771,6 +780,10 @@ int ᗇ,ᐶ='ߟ';
 for (; ᐶ++ < 'ࠖ'; ᗇ += "Ἕ䈯䘐䘐"['߬' % ᐶ + '߲' % ᐶ >> 10] + ᗇ/'v')
     print(ᐶ+"	"+ᗇ)
 </code><p>72 chars (worse!)</p></pre>
+  <aside class="notes">
+    Finally, the work paid off. Moved increment, ternary,
+    divisor-approximator, make pretty
+  </aside>
 </section>
 
 
@@ -787,6 +800,9 @@ for (;ᐶ < 55; ᗇ += "Ἕ䈯䘢"[ᐶ++>18?2:ᐶ/14] + ᗇ/'v')
 <section>
   <h2>Smaller!</h2>
   <img class="fragment" src="dilbert-small-cubicle.jpeg">
+  <aside class="notes">
+    Right tool for the job. Golf Script 2 is a byte-stack machine
+  </aside>
 </section>
 
 
@@ -816,6 +832,9 @@ for (;ᐶ < 55; ᗇ += "Ἕ䈯䘢"[ᐶ++>18?2:ᐶ/14] + ᗇ/'v')
 
 unwords map1
 </code><p>49 chars</p></pre>
+  <aside class="notes">
+    Outfactor double map
+  </aside>
 </section>
 
 
@@ -844,6 +863,9 @@ m:
   # x += x / 118
   dup 118 / + pop-b
 </code><p>46 chars</p></pre>
+  <aside class="notes">
+    Global each loop
+  </aside>
 </section>
 
 
@@ -873,6 +895,9 @@ m:
   dup 118 / + pop-b
 } each
 </code><p><i>42 chars</i></p></pre>
+  <aside class="notes">
+    Backreferences, but not 42 chars
+  </aside>
 </section>
 
 
@@ -904,6 +929,9 @@ m:
   dup 118 / +
   pop-b
 </code><p>39 chars</p></pre>
+  <aside class="notes">
+    Remember the essense? Now with lists
+  </aside>
 </section>
 
 
@@ -926,6 +954,9 @@ m:
   pop-b
   new-line
 </code><p>49 chars (worse!)</p></pre>
+  <aside class="notes">
+    Smarter lists
+  </aside>
 </section>
 
 
@@ -948,6 +979,9 @@ m:
   dup 118 / +
   pop-b
 </code><p>41 chars (previous best: 39)</p></pre>
+  <aside class="notes">
+    Looking hard for lists. Combinatorics, etc. Turns out, RLE
+  </aside>
 </section>
 
 
@@ -970,6 +1004,9 @@ m:
   dup 118 / +
   pop-b
 </code><p>34 chars</p></pre>
+  <aside class="notes">
+    Spaces AND tabs
+  </aside>
 </section>
 
 
