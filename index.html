@@ -117,6 +117,9 @@ for year in range(2016, 3000):
     if amount > 1000000.0:
         break
 </code><p>1089 chars</p></pre>
+<aside class="notes">
+    Let's make it small.. <i>in Java!</i>
+</aside>
 </section>
 
 
@@ -585,7 +588,7 @@ if (Y > 28) {
   (13, 7900), (6, 16800), (36, 17800)
   <img class="fragment" src="are-you-pondering.png">
   <aside class="notes">
-    Now, let's try this in bean shell(!)
+    Obviously, this means unicode! Let's try bean shell(!)
   </aside>
 </section>
 
@@ -769,7 +772,12 @@ for (;ᐶ++ < 55; ᗇ += "Ἕ䈯䘐"[13%ᐶ/13 + 19%ᐶ/19] + ᗇ/'v')
      print('ߟ'+ᐶ+"	"+ᗇ)
   </code><p>70 chars (still...)</p></pre>
   <aside class="notes">
-    Tried very hard to find good selector
+      Tried very hard to find good selector
+      <i>This slide: </i>I really like the selector expression in the
+      3rd sample. It's based on the addition of 2 step functions,
+      created by the inverse normalized modulo of the divisor. It
+      contains 0 conditional expressions of any kind, and is even
+      small enough to be the winning solution.
   </aside>
 </section>
 
@@ -793,6 +801,16 @@ int ᗇ,ᐶ;
 for (;ᐶ < 55; ᗇ += "Ἕ䈯䘢"[ᐶ++>18?2:ᐶ/14] + ᗇ/'v')
     print('ߠ'+ᐶ+"	"+ᗇ)
 </code><p>66 chars</p></pre>
+  <aside class="notes">
+    this is it for category 1. From here on we change to esoteric languages.
+    <i>This slide: </i>In the end, I used a combination of a windowed
+    staircase function with a ternary expression for clamping the high
+    end. After much experimentation, this is the smallest selector
+    function I could find, although I don't think it is as elegant as
+    the inverse modulo trick from 2 slides back. Still, I'm proud of
+    this result. Although I'm sure there are ways to make it
+    smaller, it's getting rather difficult at this point.
+  </aside>
 </section>
 
 
@@ -801,7 +819,11 @@ for (;ᐶ < 55; ᗇ += "Ἕ䈯䘢"[ᐶ++>18?2:ᐶ/14] + ᗇ/'v')
   <h2>Smaller!</h2>
   <img class="fragment" src="dilbert-small-cubicle.jpeg">
   <aside class="notes">
-    Right tool for the job. Golf Script 2 is a byte-stack machine
+    Right tool for the job. Golf Script 2 is a byte-stack machine. The
+    code you see on the coming slides are all examples of "gs2
+    assembler", which translates to raw gs2 bytecode. There's
+    absoutely no reason you can't write gs2 by hand, it's just a bit
+    tedious and time-consuming.
   </aside>
 </section>
 
@@ -1028,6 +1050,16 @@ m:
   dup 118 / +
   pop-b
 </code><p>33 chars (half!)</p></pre>
+  <aside class="notes">
+      Nothing. This is the end of the road.
+      <i>This slide: </i>This took quite some research and
+      experimentation. I spent a while looking over the source code
+      the gs2 interpreter, to try and get acquainted with all of its
+      many, many opcodes and variations. In the end, the RLE (Run
+      Length Encoding) scheme with implicit tab splitting proved to be
+      the best result. Almost every single word in this source list
+      translates to a single byte, so it's going to be somewhat
+      challenging to make it smaller.
 </section>
 
 
