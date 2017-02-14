@@ -1,3 +1,7 @@
+.reveal pre {
+    width: 100%;
+}
+
 .reveal pre code {
     max-height: none;
     font-size: 24px;
@@ -20,8 +24,17 @@
     line-height: 12px;
 }
 
-div.speaker-notes::before {
+.reveal .speaker-notes {
+    max-height: none;
+}
+
+.reveal .speaker-notes::before {
     content: "Next up: "
+}
+
+.reveal .speaker-notes.visible:not(:empty) {
+    width: 40%;
+    margin-left: 25%;
 }
 
 .reveal h1,
