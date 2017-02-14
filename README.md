@@ -13,3 +13,14 @@ However, if you are in a hurry, you can jump directly to
 Press space for next slide. This is important, as you'll otherwise miss some important sub-slides!
 
 Also, you can press "f" for full screen.
+
+## Prize ceremony
+
+You can read more about the [winning entries, and the prize ceremony
+itself](https://github.com/ehojsgaard/SchantzNewYearsCodingChallenge2017)
+
+## Source code
+
+All my source code, including all my failed attempts and partial hacks
+(for science!) can be found on my other [github
+repos](https://github.com/chrivers/schantz-2017)
