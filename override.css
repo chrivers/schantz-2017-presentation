@@ -19,6 +19,10 @@
     line-height: 12px;
 }
 
+div.speaker-notes::before {
+    content: "Next up: "
+}
+
 .reveal h1,
 .reveal h2,
 .reveal h3,
